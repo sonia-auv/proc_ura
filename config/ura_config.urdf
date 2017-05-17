@@ -1,0 +1,63 @@
+<robot name="URA">
+
+    <link name="base">
+        <visual name="base_viz">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.075" length="0.03" />
+            </geometry>
+            <material name="Gray">
+                <color rgba="0 0 0 0.3"/>
+            </material>
+        </visual>
+    </link>
+
+    <link name="bottom_arm">
+        <visual name="bottom_arm_viz">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.20 0.002 0.045" />
+            </geometry>
+            <material name="Gray">
+                <color rgba="0 0 0 0.3"/>
+            </material>
+        </visual>
+    </link>
+
+    <link name="top_arm">
+        <visual name="top_arm_viz">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.20 0.002 0.045" />
+            </geometry>
+            <material name="Gray">
+                <color rgba="0 0 0 0.3"/>
+            </material>
+        </visual>
+    </link>
+
+    <link name="tool">
+    </link>
+
+    <joint name="base_rotation" type="planar">
+        <child link="base"/>
+        <parent link="bottom_arm"/>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="bottom_rotation" type="planar">
+        <child link="bottom_arm"/>
+        <parent link="top_arm"/>
+        <origin xyz="0.06 0 0.045" rpy="0 0 0" />
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <joint name="tool_rotation" type="planar">
+        <child link="top_arm"/>
+        <parent link="tool"/>
+        <origin xyz="0.175 0 0" rpy="0 0 0" />
+        <axis xyz="0 0 1"/>
+    </joint>
+
+</robot>
