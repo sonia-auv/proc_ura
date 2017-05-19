@@ -27,6 +27,8 @@
 #define PROC_URA_NODE_H
 
 #include <ros/node_handle.h>
+#include <sensor_msgs/JointState.h>
+#include <tf/transform_broadcaster.h>
 
 namespace proc_ura {
 
@@ -35,18 +37,28 @@ class ProcUraNode {
   //==========================================================================
   // P U B L I C   C / D T O R S
 
-  explicit ProcUraNode(const ros::NodeHandlePtr &nh);
+  ProcUraNode(const ros::NodeHandlePtr &nh);
 
   ~ProcUraNode();
 
   void Spin();
+  void JointStateCallback(const sensor_msgs::JointState::ConstPtr &msg_in);
 
  private:
   //==========================================================================
   // P R I V A T E   M E M B E R S
 
-  ros::NodeHandlePtr nh_;
+  const double degree = M_PI/180;
 
+  ros::NodeHandlePtr nh_;
+  ros::Publisher joint_pub_;
+  ros::Subscriber joint_sub_;
+
+  tf::TransformBroadcaster broadcaster_;
+  geometry_msgs::TransformStamped odom_trans_;
+  sensor_msgs::JointState joint_state_;
+
+  double angle = 0;
 };
 
 }  // namespace proc_ura

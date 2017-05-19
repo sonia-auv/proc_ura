@@ -28,6 +28,8 @@ set(proc_ura_SRC_DIR "src")
 find_package(catkin REQUIRED COMPONENTS
         roscpp
         rospy
+        tf
+        sensor_msgs
         std_msgs)
 
 # Declare this project as a catkin package and export the necessary build flags
