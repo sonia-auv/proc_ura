@@ -29,7 +29,10 @@ find_package(catkin REQUIRED COMPONENTS
         roscpp
         rospy
         tf
+        urdf
+        xacro
         sensor_msgs
+        geometry_msgs
         std_msgs)
 
 # Declare this project as a catkin package and export the necessary build flags
