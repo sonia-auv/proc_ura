@@ -1,0 +1,7 @@
+<launch>
+	<rosparam file="$(find proc_ura)/yaml/trajectory_control.yaml" command="load"/>
+
+  <node name="proc_ura_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/proc_ura" args="proc_ura_joint_controller"/>
+
+</launch>

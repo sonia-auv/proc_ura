@@ -33,6 +33,10 @@ find_package(catkin REQUIRED COMPONENTS
         xacro
         sensor_msgs
         geometry_msgs
+        gazebo_msgs
+        gazebo_plugins
+        gazebo_ros
+        gazebo_ros_control
         std_msgs)
 
 # Declare this project as a catkin package and export the necessary build flags

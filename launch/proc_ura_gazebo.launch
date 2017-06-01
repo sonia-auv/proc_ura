@@ -1,18 +1,11 @@
 <launch>
   <include file="$(find proc_ura)/launch/proc_ura_gazebo_world.launch" />
 
-  <rosparam file="$(find proc_ura)/yaml/ura.yaml" command="load"/>
-
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
 	output="screen" ns="/proc_ura" args="joint_state_controller
 					  joint1_position_controller
 					  joint2_position_controller
 					  joint3_position_controller
 					  joint4_position_controller"/>
-
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
-	respawn="false" output="screen">
-    <remap from="/joint_states" to="/proc_ura/joint_states" />
-  </node>
 
 </launch>

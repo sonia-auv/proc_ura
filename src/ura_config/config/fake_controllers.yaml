@@ -1,7 +1,0 @@
-controller_list:
-  - name: fake_arm_controller
-    joints:
-      - base_rotation
-      - bottom_rotation
-      - top_rotation
-      - tool_rotation
