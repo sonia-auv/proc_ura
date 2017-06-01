@@ -3,63 +3,138 @@
 
     <link name="base_link">
         <visual name="base_viz">
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.075" length="0.05" />
+                <cylinder radius="0.075" length="0.05"/>
             </geometry>
             <material name="White">
                 <color rgba="1 1 1 1"/>
             </material>
         </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.075" length="0.05"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <mass value="1"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+        </inertial>
     </link>
+    <gazebo reference="base_link">
+        <material>Gazebo/White</material>
+    </gazebo>
 
     <link name="base_plate">
         <visual name="base_plate_viz">
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <cylinder radius="0.075" length="0.01" />
+                <cylinder radius="0.075" length="0.01"/>
             </geometry>
             <material name="Blue">
                 <color rgba="0 0 1 1"/>
             </material>
         </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.075" length="0.01"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <mass value="1"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+        </inertial>
     </link>
+    <gazebo reference="base_plate">
+        <material>Gazebo/Blue</material>
+    </gazebo>
 
     <link name="bottom_arm">
         <visual name="bottom_arm_viz">
-            <origin xyz="0.1 0 0" rpy="0 0 0" />
+            <origin xyz="0.1 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.20 0.002 0.045" />
+                <box size="0.20 0.02 0.045"/>
             </geometry>
             <material name="Yellow">
                 <color rgba="1 1 0 1"/>
             </material>
         </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0.1 0 0"/>
+            <geometry>
+                <box size="0.20 0.02 0.045"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <mass value="1"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+        </inertial>
     </link>
+    <gazebo reference="bottom_arm">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
 
     <link name="top_arm">
         <visual name="top_arm_viz">
-            <origin xyz="0.1 0 0" rpy="0 0 0" />
+            <origin xyz="0.1 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.20 0.002 0.045" />
+                <box size="0.20 0.02 0.045"/>
             </geometry>
             <material name="Red">
                 <color rgba="1 0 0 1"/>
             </material>
         </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0.1 0 0"/>
+            <geometry>
+                <box size="0.20 0.02 0.045"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <mass value="1"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+        </inertial>
     </link>
+    <gazebo reference="top_arm">
+        <material>Gazebo/Red</material>
+    </gazebo>
 
     <link name="tool">
-        <visual name="top_arm_viz">
-            <origin xyz="0 -0.1 0" rpy="0 0 0" />
+        <visual name="tool_viz">
+            <origin xyz="0 -0.1 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.1 0.05 0.05" />
+                <box size="0.1 0.05 0.05"/>
             </geometry>
             <material name="Lime">
                 <color rgba="0 1 0 1"/>
             </material>
         </visual>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 -0.1 0"/>
+            <geometry>
+                <box size="0.1 0.05 0.05"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <mass value="1"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="1.0"/>
+        </inertial>
     </link>
+    <gazebo reference="tool">
+        <material>Gazebo/Green</material>
+    </gazebo>
 
     <joint name="base_rotation" type="revolute">
         <parent link="base_link"/>
@@ -75,7 +150,7 @@
         <child link="bottom_arm"/>
         <origin xyz="0.03 0 0.045" rpy="0 0 0" />
         <axis xyz="0 1 0"/>
-        <limit lower="0" upper="-1.57" effort="10" velocity="10"/>
+        <limit lower="-1.57" upper="0.0" effort="10" velocity="10"/>
         <dynamics damping="50.0" friction="1.0"/>
     </joint>
 
@@ -96,5 +171,56 @@
         <limit lower="-3.14" upper="3.14" effort="10" velocity="10"/>
         <dynamics damping="0.0" friction="0.0"/>
     </joint>
+
+    <transmission name="tran1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="base_rotation">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="tran1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="bottom_rotation">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="tran1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="top_rotation">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="tran1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="tool_rotation">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <!-- ros_control plugin -->
+    <gazebo>
+        <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+            <robotNamespace>/proc_ura</robotNamespace>
+        </plugin>
+    </gazebo>
 
 </robot>
