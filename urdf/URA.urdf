@@ -1,0 +1,255 @@
+<robot
+  name="URA_1">
+  <link
+    name="base">
+    <inertial>
+      <origin
+        xyz="-9.90778049604692E-18 -0.000973569258771736 7.31474131367034E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.0876288345931558" />
+      <inertia
+        ixx="2.03988624617331E-05"
+        ixy="3.88743517418494E-16"
+        ixz="1.11669382694657E-21"
+        iyy="4.27835602958568E-05"
+        iyz="5.77890904462592E-21"
+        izz="2.62096832092312E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URA_1/meshes/base.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URA_1/meshes/base.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="J1">
+    <inertial>
+      <origin
+        xyz="-1.13107877630917E-08 0.0255649685564661 -0.0151495692671234"
+        rpy="0 0 0" />
+      <mass
+        value="0.736736484648281" />
+      <inertia
+        ixx="0.00133586238985065"
+        ixy="-9.50922812775496E-10"
+        ixz="-1.00271919910229E-10"
+        iyy="0.00252483008288603"
+        iyz="0.000331404297267385"
+        izz="0.00198983437623005" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URA_1/meshes/J1.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URA_1/meshes/J1.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J1"
+    type="fixed">
+    <origin
+      xyz="0 0 0.0235"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="J1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="J2">
+    <inertial>
+      <origin
+        xyz="9.33351812714588E-06 1.10284396277055E-06 -0.101605221799065"
+        rpy="0 0 0" />
+      <mass
+        value="0.109734997075546" />
+      <inertia
+        ixx="0.00052724215332117"
+        ixy="-4.17952396297131E-11"
+        ixz="1.97894144792601E-10"
+        iyy="0.000568700576805562"
+        iyz="2.33830721983481E-11"
+        izz="7.57625611232217E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URA_1/meshes/J2.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URA_1/meshes/J2.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J2"
+    type="continuous">
+    <origin
+      xyz="0 0.058884 -0.060428"
+      rpy="1.3239 0 0" />
+    <parent
+      link="J1" />
+    <child
+      link="J2" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="J3">
+    <inertial>
+      <origin
+        xyz="8.51970714869514E-05 1.57165532255199E-08 -0.0810236012031487"
+        rpy="0 0 0" />
+      <mass
+        value="0.530209842688532" />
+      <inertia
+        ixx="0.00245579139975232"
+        ixy="8.54875633417763E-10"
+        ixz="4.44747226363017E-06"
+        iyy="0.00386029153565598"
+        iyz="7.04051983163242E-10"
+        izz="0.00155754338447778" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URA_1/meshes/J3.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URA_1/meshes/J3.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J3"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.2032"
+      rpy="1.2782 0 0" />
+    <parent
+      link="J2" />
+    <child
+      link="J3" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="J4">
+    <inertial>
+      <origin
+        xyz="0.0275876219543553 -0.00571431360971436 -0.0144223723249392"
+        rpy="0 0 0" />
+      <mass
+        value="0.0825165692757006" />
+      <inertia
+        ixx="4.27929194580782E-05"
+        ixy="2.77495563949853E-06"
+        ixz="-5.03632402589393E-08"
+        iyy="2.76709465142374E-05"
+        iyz="1.51681593123895E-07"
+        izz="2.00902965688168E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URA_1/meshes/J4.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URA_1/meshes/J4.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J4"
+    type="continuous">
+    <origin
+      xyz="0.01785 0 -0.17158"
+      rpy="0.010467 1.5708 0" />
+    <parent
+      link="J3" />
+    <child
+      link="J4" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+</robot>
