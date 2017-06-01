@@ -5,10 +5,6 @@
         <param name="use_gui" value="$(arg gui)"/>
         <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 
-        <node pkg="controller_manager"
-            type="spawner"
-            args="joint1_position_controller joint2_position_controller joint3_position_controller joint4_position_controller" />
-
         <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
         <node name="proc_ura" pkg="proc_ura" type="proc_ura_node"/>
 

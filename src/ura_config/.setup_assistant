@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: proc_ura
+    relative_path: config/ura_config.urdf
+  SRDF:
+    relative_path: config/URA.srdf
+  CONFIG:
+    author_name: Francis Masse
+    author_email: francis.masse05@gmail.com
+    generated_timestamp: 1496289168
