@@ -5,17 +5,17 @@ proc_ura:
 
   joint1_position_controller:
     type: position_controllers/JointPositionController
-    joint: base_rotation
+    joint: J1
     pid: {p: 100.0, i: 0.01, d: 10.0}
   joint2_position_controller:
     type: position_controllers/JointPositionController
-    joint: bottom_rotation
+    joint: J2
     pid: {p: 100.0, i: 0.01, d: 10.0}
   joint3_position_controller:
     type: position_controllers/JointPositionController
-    joint: top_rotation
+    joint: J3
     pid: {p: 100.0, i: 0.01, d: 10.0}
   joint4_position_controller:
     type: position_controllers/JointPositionController
-    joint: tool_rotation
+    joint: J4
     pid: {p: 100.0, i: 0.01, d: 10.0}

@@ -14,7 +14,7 @@
     <arg name="headless" value="$(arg headless)"/>
   </include>
 
-  <param name="robot_description" command="cat $(find proc_ura)/config/ura_config.urdf" />
+  <param name="robot_description" command="cat $(find proc_ura)/urdf/URA.urdf" />
 
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 	args="-urdf -model proc_ura -param robot_description"/>

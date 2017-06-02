@@ -2,13 +2,13 @@ proc_ura:
   proc_ura_joint_controller:
     type: "position_controllers/JointTrajectoryController"
     joints:
-      - base_rotation
-      - bottom_rotation
-      - top_rotation
-      - tool_rotation
+      - J1
+      - J2
+      - J3
+      - J4
 
     gains:
-      base_rotation: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
-      bottom_rotation: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
-      top_rotation: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
-      tool_rotation: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      J1: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      J2: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      J3: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      J4: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
