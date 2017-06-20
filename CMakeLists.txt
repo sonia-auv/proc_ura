@@ -26,6 +26,12 @@ set(proc_ura_SRC_DIR "src")
 # C A T K I N   C O N F I G U R A T I O N
 
 find_package(catkin REQUIRED COMPONENTS
+        cmake_modules
+        interactive_markers
+        moveit_core
+        moveit_ros_perception
+        moveit_ros_planning_interface
+        pluginlib
         roscpp
         rospy
         tf
@@ -38,6 +44,8 @@ find_package(catkin REQUIRED COMPONENTS
         gazebo_ros
         gazebo_ros_control
         std_msgs)
+
+find_package(Boost REQUIRED COMPONENTS system)
 
 # Declare this project as a catkin package and export the necessary build flags
 catkin_package(
@@ -67,5 +75,6 @@ include_directories(
 # C R E A T E   E X E C U T A B L E
 
 add_executable(${PROJECT_NAME}_node ${proc_ura_SRC_DIR}/${PROJECT_NAME}/main.cc ${proc_ura_FILES})
+add_dependencies(${PROJECT_NAME}_node ${PROJECT_NAME}_generate_messages_cpp)
 target_link_libraries(${PROJECT_NAME}_node
         ${catkin_LIBRARIES})

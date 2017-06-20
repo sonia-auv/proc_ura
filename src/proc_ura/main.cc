@@ -24,14 +24,25 @@
  */
 
 #include <ros/ros.h>
+#include <moveit/move_group_interface/move_group_interface.h>
 #include "proc_ura/proc_ura_node.h"
 
 int main(int argc, char **argv) {
-  ros::init(argc, argv, "proc_ura");
+  ros::init(argc, argv, "proc_ura", ros::init_options::AnonymousName);
 
-  ros::NodeHandlePtr nh(new ros::NodeHandle("~"));
-  proc_ura::ProcUraNode proc_ura_node{nh};
-  proc_ura_node.Spin();
+  // start a ROS spinning thread
+  ros::AsyncSpinner spinner(1);
+  spinner.start();
+
+  moveit::planning_interface::MoveGroupInterface group("arm");
+  group.setRandomTarget();
+  group.move();
+
+  ros::waitForShutdown();
+
+//  ros::NodeHandlePtr nh(new ros::NodeHandle("~"));
+//  proc_ura::ProcUraNode proc_ura_node{nh};
+//  proc_ura_node.Spin();
 
   return 0;
 }
