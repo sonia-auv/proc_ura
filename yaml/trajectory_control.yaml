@@ -1,14 +1,23 @@
 proc_ura:
-  proc_ura_joint_controller:
-    type: "position_controllers/JointTrajectoryController"
-    joints:
-      - base_rotation_joint
-      - bottom_joint
-      - top_joint
-      - tool_joint
+   controller:
+       package: dynamixel_controllers
+       module: joint_trajectory_action_controller
+       type: JointTrajectoryActionController
+   joint_trajectory_action_node:
+       min_velocity: 0.0
+       constraints:
+           goal_time: 0.01
 
-    gains:
-      base_rotation_joint: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
-      bottom_joint: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
-      top_joint: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
-      tool_joint: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+#  proc_ura_joint_controller:
+#    type: "position_controllers/JointTrajectoryController"
+#    joints:
+#      - base_rotation_joint
+#      - bottom_joint
+#      - top_joint
+#      - tool_joint
+#
+#    gains:
+#      base_rotation_joint: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+#      bottom_joint: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+#      top_joint: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+#      tool_joint: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}

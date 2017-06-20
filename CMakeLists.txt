@@ -32,6 +32,8 @@ find_package(catkin REQUIRED COMPONENTS
         moveit_ros_perception
         moveit_ros_planning_interface
         pluginlib
+        actionlib
+        dynamixel_msgs
         roscpp
         rospy
         tf
@@ -52,6 +54,8 @@ catkin_package(
         INCLUDE_DIRS ${proc_ura_SRC_DIR}
         LIBRARIES
         CATKIN_DEPENDS
+        actionlib
+        dynamixel_msgs
         roscpp
         rospy
         std_msgs)

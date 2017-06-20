@@ -20,6 +20,10 @@
   <build_depend>moveit_ros_perception</build_depend>
   <build_depend>moveit_ros_planning_interface</build_depend>
   <build_depend>pluginlib</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
+  <build_depend>dynamixel_controllers</build_depend>
+  <build_depend>dynamixel_msgs</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>tf</build_depend>
@@ -39,6 +43,10 @@
   <run_depend>moveit_ros_perception</run_depend>
   <run_depend>moveit_ros_planning_interface</run_depend>
   <run_depend>pluginlib</run_depend>
+  <run_depend>actionlib</run_depend>
+  <run_depend>actionlib_msgs</run_depend>
+  <run_depend>dynamixel_controllers</run_depend>
+  <run_depend>dynamixel_msgs</run_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>rospy</run_depend>
   <run_depend>tf</run_depend>
