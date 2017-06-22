@@ -5,7 +5,7 @@ serial_ports:
         port_name: /dev/ttyUSB0
         baud_rate: 1000000
         min_motor_id: 0
-        max_motor_id: 6
+        max_motor_id: 3
         update_rate: 50
         diagnostics:
             error_level_temp: 70

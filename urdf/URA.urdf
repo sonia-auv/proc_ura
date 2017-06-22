@@ -205,8 +205,8 @@
     <parent link="base_link" />
     <child link="bottom_link" />
     <axis xyz="0 1 0" />
-    <limit lower="-3.14" upper="3.14" effort="10" velocity="10"/>
-    <dynamics damping="50.0" friction="1.0"/>
+    <limit lower="0" upper="5.23" effort="10" velocity="10"/>
+    <dynamics damping="1" friction="0"/>
   </joint>
 
   <joint name="bottom_joint" type="revolute">
@@ -214,8 +214,8 @@
     <parent link="bottom_link" />
     <child link="mid_link" />
     <axis xyz="1 0 0" />
-    <limit lower="-2.0" upper="2.0" effort="10" velocity="10"/>
-    <dynamics damping="50.0" friction="1.0"/>
+    <limit lower="0" upper="5.23" effort="10" velocity="10"/>
+    <dynamics damping="1" friction="0"/>
   </joint>
 
   <joint name="top_joint" type="revolute">
@@ -223,8 +223,8 @@
     <parent link="mid_link" />
     <child link="top_link" />
     <axis xyz="1 0 0" />
-    <limit lower="-3.14" upper="1.5" effort="10" velocity="10"/>
-    <dynamics damping="50.0" friction="1.0"/>
+    <limit lower="0" upper="5.23" effort="10" velocity="10"/>
+    <dynamics damping="1" friction="0"/>
   </joint>
 
   <joint name="tool_joint" type="revolute">
@@ -232,58 +232,58 @@
     <parent link="top_link" />
     <child link="tool_link" />
     <axis xyz="1 0 0" />
-    <limit lower="-3.14" upper="3.14" effort="10" velocity="10"/>
-    <dynamics damping="50.0" friction="1.0"/>
+    <limit lower="0" upper="5.23" effort="10" velocity="10"/>
+    <dynamics damping="1" friction="0"/>
   </joint>
 
-  <transmission name="tran1">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="base_rotation_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor1">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
+  <!--<transmission name="tran1">-->
+    <!--<type>transmission_interface/SimpleTransmission</type>-->
+    <!--<joint name="base_rotation_joint">-->
+      <!--<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
+    <!--</joint>-->
+    <!--<actuator name="motor1">-->
+      <!--<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
+      <!--<mechanicalReduction>1</mechanicalReduction>-->
+    <!--</actuator>-->
+  <!--</transmission>-->
 
-  <transmission name="tran1">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="bottom_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor1">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
+  <!--<transmission name="tran1">-->
+    <!--<type>transmission_interface/SimpleTransmission</type>-->
+    <!--<joint name="bottom_joint">-->
+      <!--<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
+    <!--</joint>-->
+    <!--<actuator name="motor1">-->
+      <!--<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
+      <!--<mechanicalReduction>1</mechanicalReduction>-->
+    <!--</actuator>-->
+  <!--</transmission>-->
 
-  <transmission name="tran1">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="top_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor1">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
+  <!--<transmission name="tran1">-->
+    <!--<type>transmission_interface/SimpleTransmission</type>-->
+    <!--<joint name="top_joint">-->
+      <!--<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
+    <!--</joint>-->
+    <!--<actuator name="motor1">-->
+      <!--<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
+      <!--<mechanicalReduction>1</mechanicalReduction>-->
+    <!--</actuator>-->
+  <!--</transmission>-->
 
-  <transmission name="tran1">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="tool_joint">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor1">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
+  <!--<transmission name="tran1">-->
+    <!--<type>transmission_interface/SimpleTransmission</type>-->
+    <!--<joint name="tool_joint">-->
+      <!--<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
+    <!--</joint>-->
+    <!--<actuator name="motor1">-->
+      <!--<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>-->
+      <!--<mechanicalReduction>1</mechanicalReduction>-->
+    <!--</actuator>-->
+  <!--</transmission>-->
 
-  <!-- ros_control plugin -->
-  <gazebo>
-    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-      <robotNamespace>/proc_ura</robotNamespace>
-    </plugin>
-  </gazebo>
+  <!--&lt;!&ndash; ros_control plugin &ndash;&gt;-->
+  <!--<gazebo>-->
+    <!--<plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">-->
+      <!--<robotNamespace>/proc_ura</robotNamespace>-->
+    <!--</plugin>-->
+  <!--</gazebo>-->
 </robot>

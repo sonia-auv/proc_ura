@@ -1,7 +1,7 @@
 <launch>
 
     <!-- Start the Dynamixel motor manager to control all ura servos -->
-   <node name="dynamixel_manager" pkg="dynamixel_controllers" type="controller_manager.py" required="true" output="screen">
+    <node name="dynamixel_manager" pkg="dynamixel_controllers" type="controller_manager.py" required="true" output="screen">
         <rosparam>
             namespace: dxl_manager
             serial_ports:
@@ -14,32 +14,39 @@
         </rosparam>
     </node>
 
-      <!-- Load joint controller configuration from YAML file to parameter server -->
-  <rosparam file="$(find proc_ura)/yaml/ura.yaml" command="load"/>
+    <!-- Load joint controller configuration from YAML file to parameter server -->
+    <rosparam file="$(find proc_ura)/yaml/ura.yaml" command="load"/>
 
-    <!-- Start all SmartArm joint controllers -->
+    <!-- Start all URA joint controllers -->
     <node name="controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
           args="--manager=dxl_manager
                 --port dynamixel_port
                 joint1_controller
                 joint2_controller
-				joint3_controller
-				joint4_controller"
+                joint3_controller
+                joint4_controller"
 		   output="screen"/>
 
-   <!-- Start the ura trajectory controller -->
-	<rosparam file="$(find proc_ura)/yaml/trajectory_control.yaml" command="load"/>
+    <!-- Start the URA trajectory controller -->
+	<rosparam file="$(find proc_ura)/yaml/proc_ura_trajectory_controller.yaml" command="load"/>
     <node name="controller_spawner_meta" pkg="dynamixel_controllers" type="controller_spawner.py"
     args="--manager=dxl_manager
           --type=meta
-          proc_ura
+          proc_ura_trajectory_controller
           joint1_controller
           joint2_controller
           joint3_controller
           joint4_controller"
           output="screen"/>
 
-  <!-- Publish combined joint info -->
-  <include file="$(find proc_ura)/launch/joint_state_aggregator.launch" />
+    <!-- Publish combined joint info -->
+    <include file="$(find proc_ura)/launch/joint_state_aggregator.launch" />
 
-  </launch>
+    <param name="robot_description" command="cat $(find proc_ura)/urdf/URA.urdf" />
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+      <param name="/use_gui" value="false"/>
+      <rosparam param="/source_list">[joint_states]</rosparam>
+    </node>
+
+</launch>

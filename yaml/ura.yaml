@@ -1,20 +1,15 @@
-proc_ura:
-  joint_state_controller:
-    type: joint_state_controller/JointStateController
-    publish_rate: 50
-
 joint1_controller:
     controller:
         package: dynamixel_controllers
         module: joint_position_controller
         type: JointPositionController
     joint_name: base_rotation_joint
-    joint_speed: 0.1
+    joint_speed: 1
     motor:
         id: 0
-        init: 2048
-        min: 320
-        max: 3823
+        init: 0
+        min: 0
+        max: 4095
 
 joint2_controller:
     controller:
@@ -22,12 +17,12 @@ joint2_controller:
         module: joint_position_controller
         type: JointPositionController
     joint_name: bottom_joint
-    joint_speed: 0.1
+    joint_speed: 1
     motor:
         id: 1
-        init: 2048
-        min: 957
-        max: 3106
+        init: 0
+        min: 0
+        max: 4095
 
 joint3_controller:
     controller:
@@ -35,12 +30,12 @@ joint3_controller:
         module: joint_position_controller
         type: JointPositionController
     joint_name: top_joint
-    joint_speed: 0.1
+    joint_speed: 1
     motor:
         id: 2
-        init: 2048
-        min: 314
-        max: 3836
+        init: 0
+        min: 0
+        max: 4095
 
 joint4_controller:
     controller:
@@ -48,9 +43,9 @@ joint4_controller:
         module: joint_position_controller
         type: JointPositionController
     joint_name: tool_joint
-    joint_speed: 0.1
+    joint_speed: 1
     motor:
         id: 3
-        init: 2048
-        min: 750
-        max: 3344
+        init: 0
+        min: 0
+        max: 4095
