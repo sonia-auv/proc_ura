@@ -201,7 +201,7 @@
   </joint>
 
   <joint name="base_rotation_joint" type="revolute">
-    <origin xyz="0 0 0.0235" rpy="1.5708 0 0" />
+    <origin xyz="0 0 0.0235" rpy="1.5708 0 0.5236" />
     <parent link="base_link" />
     <child link="bottom_link" />
     <axis xyz="0 1 0" />
@@ -210,20 +210,20 @@
   </joint>
 
   <joint name="bottom_joint" type="revolute">
-    <origin xyz="0 0.058884 -0.060428" rpy="1.3239 0 0" />
+    <origin xyz="0 0.058884 -0.060428" rpy="5.54 0 0" />
     <parent link="bottom_link" />
     <child link="mid_link" />
     <axis xyz="1 0 0" />
-    <limit lower="0" upper="5.23" effort="10" velocity="10"/>
+    <limit lower="0" upper="4.0" effort="10" velocity="10"/>
     <dynamics damping="1" friction="0"/>
   </joint>
 
   <joint name="top_joint" type="revolute">
-    <origin xyz="0 0 -0.2032" rpy="1.2782 0 0" />
+    <origin xyz="0 0 -0.2032" rpy="0 0 0" />
     <parent link="mid_link" />
     <child link="top_link" />
     <axis xyz="1 0 0" />
-    <limit lower="0" upper="5.23" effort="10" velocity="10"/>
+    <limit lower="0" upper="4.64" effort="10" velocity="10"/>
     <dynamics damping="1" friction="0"/>
   </joint>
 

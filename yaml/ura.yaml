@@ -4,7 +4,7 @@ joint1_controller:
         module: joint_position_controller
         type: JointPositionController
     joint_name: base_rotation_joint
-    joint_speed: 1
+    joint_speed: 5
     motor:
         id: 0
         init: 0
@@ -17,7 +17,7 @@ joint2_controller:
         module: joint_position_controller
         type: JointPositionController
     joint_name: bottom_joint
-    joint_speed: 1
+    joint_speed: 5
     motor:
         id: 1
         init: 0
@@ -30,7 +30,7 @@ joint3_controller:
         module: joint_position_controller
         type: JointPositionController
     joint_name: top_joint
-    joint_speed: 1
+    joint_speed: 5
     motor:
         id: 2
         init: 0
@@ -43,7 +43,7 @@ joint4_controller:
         module: joint_position_controller
         type: JointPositionController
     joint_name: tool_joint
-    joint_speed: 1
+    joint_speed: 5
     motor:
         id: 3
         init: 0
