@@ -52,7 +52,7 @@ joint4_controller:
         min: 0
         max: 4095
 
-joint4_controller:
+joint5_controller:
     controller:
         package: dynamixel_controllers
         module: joint_position_controller
