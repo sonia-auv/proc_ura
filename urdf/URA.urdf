@@ -2,28 +2,12 @@
 
 <robot name="URA">
 
-  <link name="world_link">
-    <visual>
-      <origin rpy="0 0 0" xyz=" 0 0 -0.025"/>
-      <geometry>
-        <box size="0.2 0.13 0.05"/>
-      </geometry>
-      <material name="Black"/>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz=" 0 0 -0.025"/>
-      <geometry>
-        <box size="0.2 0.13 0.05"/>
-      </geometry>
-    </collision>
-  </link>
-
-  <link name="base_link">
+  <link name="sub_link">
     <inertial>
       <origin
               xyz="0 0 0"
               rpy="0 0 0" />
-      <mass value="0.0876288345931558" />
+      <mass value="0.148202375101878" />
       <inertia
               ixx="0"
               ixy="0"
@@ -39,8 +23,9 @@
       <geometry>
         <mesh filename="package://proc_ura/meshes/base.STL" />
       </geometry>
-      <material name="">
-        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      <material
+              name="">
+        <color rgba="0 0 0 1" />
       </material>
     </visual>
     <collision>
@@ -53,19 +38,54 @@
     </collision>
   </link>
 
+  <link name="base_link">
+    <inertial>
+      <origin
+              xyz="0 0.0131024540957446 0"
+              rpy="0 0 0" />
+      <mass value="0.0450140458134961" />
+      <inertia
+              ixx="0"
+              ixy="0"
+              ixz="0"
+              iyy="0"
+              iyz="0"
+              izz="0" />
+    </inertial>
+    <visual>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://proc_ura/meshes/Fix.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+              xyz="0 0 0"
+              rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://proc_ura/meshes/Fix.STL" />
+      </geometry>
+    </collision>
+  </link>
+
   <link name="bottom_link">
     <inertial>
       <origin
-              xyz="0 0.0255649685564661 -0.0151495692671234"
+              xyz="-0.0128263293227892 -0.0659453769006113 1.42109472112326E-06"
               rpy="0 0 0" />
-      <mass value="0.736736484648281" />
+      <mass value="0.207119682952531" />
       <inertia
-              ixx="0.00133586238985065"
+              ixx="0"
               ixy="0"
               ixz="0"
-              iyy="0.00252483008288603"
-              iyz="0.000331404297267385"
-              izz="0.00198983437623005" />
+              iyy="0"
+              iyz="0"
+              izz="0" />
     </inertial>
     <visual>
       <origin
@@ -75,7 +95,7 @@
         <mesh filename="package://proc_ura/meshes/J1.STL" />
       </geometry>
       <material name="">
-        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+        <color rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
       </material>
     </visual>
     <collision>
@@ -91,14 +111,14 @@
   <link name="mid_link">
     <inertial>
       <origin
-              xyz="0 0 -0.101605221799065"
+              xyz="-4.22065026380166E-06 -0.0238427685332122 0.0552904026319393"
               rpy="0 0 0" />
-      <mass value="0.109734997075546" />
+      <mass value="0.318160127525053" />
       <inertia
-              ixx="0.00052724215332117"
+              ixx="0"
               ixy="0"
               ixz="0"
-              iyy="0.000568700576805562"
+              iyy="0"
               iyz="0"
               izz="0" />
     </inertial>
@@ -110,7 +130,7 @@
         <mesh filename="package://proc_ura/meshes/J2.STL" />
       </geometry>
       <material name="">
-        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+        <color rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
       </material>
     </visual>
     <collision>
@@ -126,16 +146,16 @@
   <link name="top_link">
     <inertial>
       <origin
-              xyz="0 0 -0.0810236012031487"
+              xyz="0.00733884120646397 -0.000738490660792937 -0.0304327162411585"
               rpy="0 0 0" />
-      <mass value="0.530209842688532" />
+      <mass value="0.102709673564339" />
       <inertia
-              ixx="0.00245579139975232"
+              ixx="0"
               ixy="0"
               ixz="0"
-              iyy="0.00386029153565598"
+              iyy="0"
               iyz="0"
-              izz="0.00155754338447778" />
+              izz="0" />
     </inertial>
     <visual>
       <origin
@@ -145,7 +165,7 @@
         <mesh filename="package://proc_ura/meshes/J3.STL" />
       </geometry>
       <material name="">
-        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+        <color rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
       </material>
     </visual>
     <collision>
@@ -161,9 +181,9 @@
   <link name="tool_link">
     <inertial>
       <origin
-              xyz="0.0275876219543553 -0.00571431360971436 -0.0144223723249392"
+              xyz="4.67319894364993E-06 0.0695571755660441 -0.0262184509373798"
               rpy="0 0 0" />
-      <mass value="0.0825165692757006" />
+      <mass value="0.105976928601757" />
       <inertia
               ixx="0"
               ixy="0"
@@ -180,7 +200,7 @@
         <mesh filename="package://proc_ura/meshes/J4.STL" />
       </geometry>
       <material name="">
-        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+        <color rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
       </material>
     </visual>
     <collision>
@@ -193,45 +213,85 @@
     </collision>
   </link>
 
+  <link name="clamp_link">
+    <inertial>
+      <origin
+              xyz="-0.0422442225463169 0.0228184321520898 -0.0265207786803975"
+              rpy="0 0 0" />
+      <mass value="0.0884654244685185" />
+      <inertia
+              ixx="0"
+              ixy="0"
+              ixz="0"
+              iyy="0"
+              iyz="0"
+              izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://proc_ura/meshes/clamp.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://proc_ura/meshes/clamp.STL" />
+      </geometry>
+    </collision>
+  </link>
+
   <joint name="base_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="world_link"/>
+    <origin xyz="0.015325 0 0.004025" rpy="1.5708 0 0"/>
+    <parent link="sub_link"/>
     <child link="base_link"/>
-    <axis xyz="0 0 1" />
+    <axis xyz="0 0 0" />
   </joint>
 
   <joint name="base_rotation_joint" type="revolute">
-    <origin xyz="0 0 0.0235" rpy="1.5708 0 0.53" />
+    <origin xyz="0 0.02254 0" rpy="0 0 -3.1416" />
     <parent link="base_link" />
     <child link="bottom_link" />
-    <axis xyz="0 1 0" />
+    <axis xyz="0 -1 0" />
     <limit lower="0" upper="5.23" effort="10" velocity="10"/>
     <dynamics damping="1" friction="0"/>
   </joint>
 
   <joint name="bottom_joint" type="revolute">
-    <origin xyz="0 0.058884 -0.060428" rpy="-1 0 0" />
+    <origin xyz="-0.042 -0.086849 0" rpy="1.5708 -5.093E-17 -0.49648" />
     <parent link="bottom_link" />
     <child link="mid_link" />
-    <axis xyz="1 0 0" />
+    <axis xyz="0 1 0" />
     <limit lower="0" upper="5.23" effort="10" velocity="10"/>
     <dynamics damping="1" friction="0"/>
   </joint>
 
   <joint name="top_joint" type="revolute">
-    <origin xyz="0 0 -0.2032" rpy="-2.5 0 0" />
+    <origin xyz="0 0 0.1524" rpy="3.1416 -0.64087 -3.1416" />
     <parent link="mid_link" />
     <child link="top_link" />
-    <axis xyz="1 0 0" />
+    <axis xyz="0 1 0" />
     <limit lower="0" upper="5.23" effort="10" velocity="10"/>
     <dynamics damping="1" friction="0"/>
   </joint>
 
   <joint name="tool_joint" type="revolute">
-    <origin xyz="0.01785 0 -0.17158" rpy="0.010467 1.5708 0" />
+    <origin xyz="0.016924 0 -0.062" rpy="3.1416 -0.86421 1.5708" />
     <parent link="top_link" />
     <child link="tool_link" />
-    <axis xyz="1 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="5.23" effort="10" velocity="10"/>
+    <dynamics damping="1" friction="0"/>
+  </joint>
+
+  <joint name="clamp_joint" type="revolute">
+    <origin xyz="0 0.064598 -0.022252" rpy="1.5708 8.3267E-16 -1.1082" />
+    <parent link="tool_link" />
+    <child link="clamp_link" />
+    <axis xyz="0 1 0" />
     <limit lower="0" upper="5.23" effort="10" velocity="10"/>
     <dynamics damping="1" friction="0"/>
   </joint>

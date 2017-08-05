@@ -9,7 +9,7 @@
                     port_name: "/dev/ttyUSB0"
                     baud_rate: 1000000
                     min_motor_id: 0
-                    max_motor_id: 3
+                    max_motor_id: 5
                     update_rate: 20
         </rosparam>
     </node>
@@ -24,7 +24,8 @@
                 joint1_controller
                 joint2_controller
                 joint3_controller
-                joint4_controller"
+                joint4_controller
+                joint5_controller"
 		   output="screen"/>
 
     <!-- Start the URA trajectory controller -->
@@ -36,7 +37,8 @@
           joint1_controller
           joint2_controller
           joint3_controller
-          joint4_controller"
+          joint4_controller
+          joint5_controller"
           output="screen"/>
 
     <!-- Publish combined joint info -->

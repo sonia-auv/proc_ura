@@ -4,7 +4,7 @@ joint1_controller:
         module: joint_position_controller
         type: JointPositionController
     joint_name: base_rotation_joint
-    joint_speed: 5
+    joint_speed: 10
     motor:
         id: 0
         init: 0
@@ -14,15 +14,17 @@ joint1_controller:
 joint2_controller:
     controller:
         package: dynamixel_controllers
-        module: joint_position_controller
-        type: JointPositionController
+        module: joint_position_controller_dual_motor
+        type: JointPositionControllerDual
     joint_name: bottom_joint
-    joint_speed: 5
-    motor:
+    joint_speed: 10
+    motor_master:
         id: 1
         init: 0
         min: 0
         max: 4095
+    motor_slave:
+        id: 2
 
 joint3_controller:
     controller:
@@ -30,9 +32,9 @@ joint3_controller:
         module: joint_position_controller
         type: JointPositionController
     joint_name: top_joint
-    joint_speed: 5
+    joint_speed: 10
     motor:
-        id: 2
+        id: 3
         init: 0
         min: 0
         max: 4095
@@ -43,9 +45,22 @@ joint4_controller:
         module: joint_position_controller
         type: JointPositionController
     joint_name: tool_joint
-    joint_speed: 5
+    joint_speed: 10
     motor:
-        id: 3
+        id: 4
+        init: 0
+        min: 0
+        max: 4095
+
+joint4_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: clamp_joint
+    joint_speed: 10
+    motor:
+        id: 5
         init: 0
         min: 0
         max: 4095

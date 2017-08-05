@@ -7,6 +7,7 @@
                     - joint2_controller
                     - joint3_controller
                     - joint4_controller
+                    - joint5_controller
         </rosparam>
     </node>
 </launch>
