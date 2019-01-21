@@ -1,0 +1,10 @@
+<launch>
+
+    <node name="proc_ura"
+        pkg="proc_ura"
+        type="proc_ura_node"
+        output="screen" />
+
+    <include file="$(find proc_ura)/launch/proc_ura_bringup_moveit.launch"/>
+
+</launch>

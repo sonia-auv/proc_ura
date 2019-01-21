@@ -1,0 +1,16 @@
+<launch>
+
+  <include file="$(find proc_ura)/launch/proc_ura_gazebo_world.launch"/>
+
+  <include file="$(find proc_ura)/launch/proc_ura_gazebo_states.launch"/>
+
+  <include file="$(find proc_ura)/launch/proc_ura_trajectory_controller.launch"/>
+
+  <include file="$(find ura_moveit_config)/launch/moveit_planning_execution.launch"/>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/>
+    <rosparam param="/source_list">[/proc_ura/proc_ura_joint_controller]</rosparam>
+  </node>
+
+</launch>

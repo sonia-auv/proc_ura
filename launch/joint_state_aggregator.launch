@@ -1,0 +1,13 @@
+<launch>
+    <node name="proc_ura" pkg="proc_ura" type="proc_ura_node" output="screen">
+    <rosparam>
+            rate: 50
+            controllers:
+                    - joint1_controller
+                    - joint2_controller
+                    - joint3_controller
+                    - joint4_controller
+                    - joint5_controller
+        </rosparam>
+    </node>
+</launch>
