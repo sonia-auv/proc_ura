@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>proc_ura</name>
-  <version>0.0.0</version>
+  <version>1.0.0</version>
   <description>The proc_ura package</description>
 
   <maintainer email="francis.masse05@gmail.com">Francis Masse</maintainer>
